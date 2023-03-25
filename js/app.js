@@ -104,20 +104,34 @@ function mostrarInfo(data,criptomoneda){
     //limpiamos el html 
     limpiarHmtl();
     //anexamos los datos solicitados
-    const {PRICE} = data;
+    const {PRICE,HIGHDAY,LOWDAY,FROMSYMBOL} = data;
     const cripto = document.createElement('p');
     cripto.classList.add('titulo')
-    cripto.textContent = criptomoneda
+    cripto.textContent = criptomoneda;
 
     const precio = document.createElement('p');
     precio.classList.add('precio');
     precio.innerHTML = `<p>El precio es: <span>${PRICE}</span></p>`;
 
+    const precioMasAlto = document.createElement('p');
+    precioMasAlto.innerHTML = `<p>El precio mas alto: <span>${HIGHDAY}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#16FF00" class="w-2" id="arrow_up">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+        </svg>
+    </p>`;
 
+    const precioMasBajo = document.createElement('p');
+    precioMasBajo.innerHTML = `<p>El precio mas bajo: <span>${LOWDAY}</span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FF0032" class="" id="arrow_down">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+    </svg>
 
+    </p>`;
     //zona de anexo al contenedor resultado
     resultadoContainer.appendChild(cripto);
     resultadoContainer.appendChild(precio);
+    resultadoContainer.appendChild(precioMasAlto);
+    resultadoContainer.appendChild(precioMasBajo);
 
 }
 //limpia los elementos internos del contenedor
@@ -140,7 +154,6 @@ function mostrarSpiner(){
         <div class="rect4"></div>
         <div class="rect5"></div>
     `;
-
     //SE anexa el spinner al contenedor
     resultadoContainer.appendChild(spinner);
 }

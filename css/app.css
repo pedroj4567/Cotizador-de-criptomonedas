@@ -68,8 +68,19 @@ p.precio{
     font-size: 30px!important;
 }
 
+#arrow_up{
+  height: 26px;
+  width: 30px;
+  position: absolute;
+}
+#arrow_down{
+  height: 26px;
+  width: 30px;
+  position: absolute;
+}
+
 p.titulo{
-    font-size: 32px !important;
+    font-size: 40px !important;
     text-align: center;
     font-weight: 600;
     color: white;
